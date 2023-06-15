@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
                 height: 30,
                 width: 300,
                 child: const Text(
-                  "Hello World",
+                  "Eu amo a Dede!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.black,
