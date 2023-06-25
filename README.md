@@ -1,6 +1,6 @@
 # projeto_testes
 
-Projeto de um app em Flutter.
+Projeto de um app em Flutter. (não terminado)
 
 ## Getting Started
 
