@@ -33,6 +33,8 @@ class _FormScreenState extends State<FormScreen> {
           height: 650,
           width: 375,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -85,6 +87,9 @@ class _FormScreenState extends State<FormScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
+                      errorBuilder: (BuildContext context, Object exception,
+                              StackTrace? stackTrace) =>
+                          Image.asset('assets/images/nophoto.png'),
                       imageController.text,
                       fit: BoxFit.cover,
                     ),
