@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_testes/components/task.dart';
+import 'package:projeto_testes/data/task_inherited.dart';
+
+import 'form_screen.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
@@ -28,41 +30,43 @@ class _InitialScreenState extends State<InitialScreen> {
           opacity: (opacidade) ? 1 : 0,
           duration: const Duration(milliseconds: 800),
           child: ListView(
-            children: const [
-              Task('Aprender Flutter', 'assets/images/Dash.png', 3),
-              Task('Andar de bicicleta', 'assets/images/bicicleta.jpg', 2),
-              Task('Jogar futebol', 'assets/images/futebol.jpg', 1),
-              Task('Ler um livro', 'assets/images/livro.jpg', 4),
-              SizedBox(
-                height: 80,
-              )
-            ],
+            padding: const EdgeInsets.only(top: 8, bottom: 70),
+            children: TaskInherited.of(context).taskList,
           ),
         ),
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
+              heroTag: "esconder",
               onPressed: () {
                 setState(() {
                   opacidade = !opacidade;
                 });
               },
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.blue,
               child: const Icon(
                 Icons.hide_source,
-                color: Colors.red,
+                color: Colors.white,
               ),
             ),
             const SizedBox(
               width: 12,
             ),
             FloatingActionButton(
-                onPressed: () {},
-                backgroundColor: Colors.white,
+                heroTag: "adicionar",
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (contextNew) => FormScreen(
+                                taskContext: context,
+                              )));
+                },
+                backgroundColor: Colors.blue,
                 child: const Icon(
                   Icons.add,
-                  color: Colors.green,
+                  color: Colors.white,
                 )),
           ],
         ));

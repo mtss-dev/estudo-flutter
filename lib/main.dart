@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_testes/components/initial_screen.dart';
-import 'package:projeto_testes/screens/form_screen.dart';
+import 'package:projeto_testes/data/task_inherited.dart';
+import 'package:projeto_testes/screens/initial_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-          useMaterial3: true,
         ),
-        home: const FormScreen());
+        home: TaskInherited(
+          child: const InitialScreen(),
+        ));
   }
 }
